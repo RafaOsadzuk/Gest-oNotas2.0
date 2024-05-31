@@ -1,0 +1,44 @@
+.formContainer{
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+}
+
+#formulario{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    row-gap: 5px;
+    font-size: 17px;
+}
+
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+table {
+    width: 50%;
+    
+}
+
+th, td{
+    border: 1px solid;
+}
+
+th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  tr:hover {
+    background-color: #f2f2f2;
+  }
