@@ -34,9 +34,9 @@ function adicionaDadosAluno() {
         corpoTabela.appendChild(novaLinha);
 
         const dados = {Ra, nome, email};
-        const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
+      /*  const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
         tabelaDados.push(dados);
-        localStorage.setItem('tabelaDados', JSON.stringify(tabelaDados));
+        localStorage.setItem('tabelaDados', JSON.stringify(tabelaDados)); */
 
     } catch (error) {
         alert(error.message);
@@ -44,7 +44,7 @@ function adicionaDadosAluno() {
 }
 
 window.onload = function () {
-    const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
+   // const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
     const corpoTabela = document.getElementById('tableContent');
 
     tabelaDados.forEach(function(dados) {
@@ -62,3 +62,23 @@ document.getElementById("formulario").addEventListener('submit', function(event)
     adicionaDadosAluno();
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/app.php')
+        .then(response => response.json())
+        .then(data => {
+            const tableContent = document.getElementById('tableContent');
+            tableContent.innerHTML = '';
+            data.forEach(aluno => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${aluno.Ra}</td>
+                    <td>${aluno.nome}</td>
+                    <td>${aluno.email}</td>
+                `;
+                tableContent.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao buscar alunos:', error);
+        });
+});

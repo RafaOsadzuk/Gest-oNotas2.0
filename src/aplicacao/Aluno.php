@@ -2,21 +2,21 @@
 
 class Aluno
 {
-    private string $ra;
+    private string $Ra;
     private string $nome;
     private string $email;
     
 
-    public function __construct(string $ra, string $nome, string $email)
+    public function __construct(string $Ra, string $nome, string $email)
     {
         $this->nome = $nome;
-        $this->ra = $ra;
+        $this->Ra = $Ra;
         $this->email = $email;
     }
 
-    public function getra(): string
+    public function getRa(): string
     {
-        return $this->ra;
+        return $this->Ra;
     }
 
     public function getNome(): string
