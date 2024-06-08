@@ -1,84 +1,50 @@
 function adicionaDadosAluno() {
-    
     try {
         const Ra = document.getElementById("input_ra").value;
         const nome = document.getElementById("input_nome").value;
         const email = document.getElementById("input_email").value;
-        
-        if (!Ra || !nome || !email) {
-            throw new Error("Por favor, preencha todos os campos.");
-        }
-        
-        if (Ra.length !== 8 || !/^\d+$/.test(Ra)) {
-            throw new Error("Por favor, insira um RA válido com 8 dígitos.");
-        }
 
-        if(/\d/.test(nome)){
-            throw new Error("Não é possível inserir números no nome.");
-        }
+        console.log("Dados do aluno:", { Ra, nome, email });
 
-        if (!/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(email)) {
-            throw new Error("Insira um email válido."); 
-        }
-        
-        const novaLinha = document.createElement("tr")
-    
-        novaLinha.innerHTML = `
-            <td>${Ra} </td> 
-            <td>${nome}</td> 
-            <td>${email}</td>
-
-        `;
-
-        const corpoTabela = document.getElementById('tableContent');
-        corpoTabela.appendChild(novaLinha);
-
-        const dados = {Ra, nome, email};
-      /*  const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
-        tabelaDados.push(dados);
-        localStorage.setItem('tabelaDados', JSON.stringify(tabelaDados)); */
-
+       
+        fetch('/script.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ Ra, nome, email }),
+        })
+        .then(response => {
+            console.log("Resposta do servidor:", response);
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erro ao salvar dados no servidor.');
+            }
+        })
+        .then(data => {
+            console.log("Resposta do servidor (dados):", data);
+            
+            const novaLinha = document.createElement("tr");
+            novaLinha.innerHTML = `
+                <td>${Ra}</td>
+                <td>${nome}</td>
+                <td>${email}</td>
+            `;
+            const corpoTabela = document.getElementById('tableContent');
+            corpoTabela.appendChild(novaLinha);
+        })
+        .catch(error => {
+            console.error("Erro:", error);
+            alert(error.message);
+        });
     } catch (error) {
+        console.error("Erro:", error);
         alert(error.message);
     }
 }
 
-window.onload = function () {
-   // const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
-    const corpoTabela = document.getElementById('tableContent');
-
-    tabelaDados.forEach(function(dados) {
-        const novaLinha = document.createElement("tr");
-        novaLinha.innerHTML = `
-        <td>${dados.Ra}</td>
-        <td>${dados.nome}</td>
-        <td>${dados.email}</td>
-        `;
-        corpoTabela.appendChild(novaLinha);
-    });
-}
-document.getElementById("formulario").addEventListener('submit', function(event) {
-    event.preventDefault(); 
+document.getElementById("formulario").addEventListener('submit', function (event) {
+    event.preventDefault();
     adicionaDadosAluno();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('/app.php')
-        .then(response => response.json())
-        .then(data => {
-            const tableContent = document.getElementById('tableContent');
-            tableContent.innerHTML = '';
-            data.forEach(aluno => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${aluno.Ra}</td>
-                    <td>${aluno.nome}</td>
-                    <td>${aluno.email}</td>
-                `;
-                tableContent.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error('Erro ao buscar alunos:', error);
-        });
 });
