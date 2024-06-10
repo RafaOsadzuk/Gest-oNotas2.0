@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizualizar Tabela Primeiro Bimestre</title>
+    <link rel="stylesheet" href="visualizarTabela1.css">
+</head>
+<body>
+
+    <div class="titulo">
+        Tabela Primeiro Bimestre
+    </div>
+
+    <div class="table_Container">
+        <table id="notasTabela">
+            <thead>
+                <tr>
+                    <th>Ra</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th class="notasParte" id="prova1">Prova 1</th>
+                    <th class="notasParte" id="aep1">AEP 1</th>
+                    <th class="notasParte" id="prova_int1">Prova Integrada 1</th>
+                    <th class="notasParte" id="media_bimestral1">Primeira Nota</th>
+                    <th>Status</th> 
+                </tr>
+            </thead>
+            <tbody " id="table_Content">
+            </tbody>
+        </table>
+    </div>
+    <div class="resultado">
+        <div id="resultadoBimestre1"></div>
+        <div id="resultadoBimestre2"></div>
+    </div>
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const tabelaDados = JSON.parse(localStorage.getItem('tabelaDados')) || [];
+            const corpoTabela = document.getElementById('table_Content');
+            
+            tabelaDados.forEach(function(dados) {
+                const novaLinha = document.createElement("tr");
+                novaLinha.innerHTML = `
+                    <td>${dados.Ra}</td>
+                    <td>${dados.nome}</td>
+                    <td>${dados.email}</td>
+                    <td>${dados.prova1}</td>
+                    <td>${dados.AEP1}</td>
+                    <td>${dados.prova_integrada1}</td>
+                    <td>${dados.primeiraMedia}</td>
+                    <td>${dados.status}</td>
+                `;
+                corpoTabela.appendChild(novaLinha);
+            });
+        });
+    </script>
+    
+</body>
+</html>
