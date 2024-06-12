@@ -20,37 +20,45 @@
         </a>
     </div>
 
-
-    <div class="table_Container">
-        <table id="notasTabela">
-            <thead>
-                <tr>
-                    <th>Ra</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th class="notasParte" id="prova1">Prova 1</th>
-                    <th class="notasParte" id="aep1">AEP 1</th>
-                    <th class="notasParte" id="prova_int1">Prova Integrada 1</th>
-                    <th class="notasParte" id="media_bimestral1">Primeira Nota</th>
-                    <th>Status</th> 
-                </tr>
-            </thead>
-            <tbody " id="table_Content">
-            </tbody>
-        </table>
-    </div>
-    <div class="resultado">
-        <div id="resultadoBimestre1"></div>
-        <div id="resultadoBimestre2"></div>
-    </div>
-    <div class="botaoCalcular">
+    <form action="/appNotas.php" method="POST">
+        <div class="table_Container">
+            <table id="notasTabela">
+                <thead>
+                    <tr>
+                        <th>Ra</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th class="notasParte" id="prova1">
+                            <label for="prova1">Prova 1:</label>
+                              <input type="number" id="prova1" name="prova1" >
+                        </th>
+                        <th class="notasParte" id="aep1">
+                            <input type="number" id="aep1" name="aep1" >
+                        </th>
+                        <th class="notasParte" id="prova_int1">
+                            <input type="number" id="prova_int1" name="prova_int1" >
+                        </th>
+                        <th>Status</th> 
+                    </tr>
+                </thead>
+                <tbody id="table_Content">
+                </tbody>
+            </table>
+        </div>
+        <div class="resultado">
+            <div id="resultadoBimestre1"></div>
+            <div id="resultadoBimestre2"></div>
+        </div>
         
-        <button onclick="calcularNota()">Calcular Notas</button>
-    </div>
-    <div class="botaoEnviar">
-        <button onclick="enviarNotas()">Enviar Notas</button>
-    </div>
-    Recarregue a página após enviar as notas!
+        <div class="botaoEnviar">
+            <input type="submit" value="Enviar Notas">
+            </div>
+        </div>
+        Recarregue a página após enviar as notas!
+    </form>
+
+
+    
     
 
    
