@@ -1,0 +1,244 @@
+.formContainer{
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+}
+
+#formulario{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    row-gap: 5px;
+    font-size: 17px;
+}
+
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+table {
+    width: 50%;
+    
+}
+
+th, td{
+    border: 1px solid;
+}
+
+th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+
+
+  .topNav{
+    display:flex;
+    
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #cadastro_notas, #inicio, #primeiro_bimestre{
+    font-size: larger;
+    text-decoration: none;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .botaoCalcular, .botaoEnviar {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .botaoCalcular button, .botaoEnviar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .botaoCalcular button:hover, .botaoEnviar button:hover {
+    background-color: #45a049;
+  }
+  
+  
+    .form_Container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .hidden-header{
+      visibility: hidden;
+    }
+  
+  .hidden-header2{
+    visibility: hidden;
+  }
+  
+  
+  
+  .form_Container{
+  
+   display: flex;
+   justify-content: center;
+   color: #1D3E77;
+  }
+  
+  header{
+    color: #1D3E77;
+  }
+  #pf{
+    display: flex;
+    justify-content: center;
+  font-size:40px ;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1D3E77;
+  
+  }
+  
+  
+  #info{
+    display: flex;
+    justify-content: center;
+    color: #1D3E77;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  
+  
+  #texto2{
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  color: #1D3E77;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  
+  
+  }
+  
+  
+  #ben{
+  margin-left: 1030px;
+  margin-bottom: 50px;
+  margin-top: -21px;
+  
+  }
+  
+  
+  .table_Container{
+     color: #1D3E77;
+     display: flex;
+     justify-content:safe;
+     text-align: center;
+   }
+   
+  #ben2{
+  
+    margin-top: 40px;
+  margin-left: 10px;
+  }
+
+  
+  .apresenta{
+    color: #1D3E77;
+    display: flex;
+    justify-content: center;
+}
+
+.informacao{
+  color: #33759f;
+  font-size: large;
+}
+
+.botao{
+  background-color: #fcfcfc;
+  padding: 20px;
+  border: none; 
+  width: 100%; 
+  border-radius: 15px; 
+  font-size: 14px; 
+  color: rgb(0, 0, 0); 
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.atividade{
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute; 
+  padding: 60px 120px 60px 60px; 
+  border-radius: 15px;  
+}
+
+
+.opcoes{
+  position: absolute; 
+  top: 20%; 
+  left: 75%; 
+  transform: translate(-25%, -75%); 
+  color: #1D3E77
+}
+
+.atividade{
+  background-color: rgba(37, 192, 253, 0.9);
+  position: absolute; 
+  padding: 60px 120px 60px 60px; 
+  border-radius: 15px;  
+}
+
+.rodape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #33759f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
