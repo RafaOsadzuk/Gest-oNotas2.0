@@ -9,8 +9,6 @@ $pdo = Database::getConn();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
     $aluno = new Aluno($_POST['nome'], $_POST['Ra'], $_POST['email']);
-    
-   
     $alunoModel = new AlunoModel($aluno);
     if ($alunoModel->save()) {
         
