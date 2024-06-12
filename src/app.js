@@ -44,7 +44,7 @@ function adicionaDadosAluno() {
     }
 }
 
-document.getElementById("formulario").addEventListener('submit', function (event) {
-    event.preventDefault();
-    adicionaDadosAluno();
-});
+//document.getElementById("formulario").addEventListener('submit', function (event) {
+  //  event.preventDefault();
+  //  adicionaDadosAluno();
+//});
